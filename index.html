@@ -7,18 +7,257 @@
 <style>
 :root{--blue:#117fa3;--dark:#17324d;--orange:#ed7623;--light:#eef7fa;--white:#fff;--green:#2e8b57;--red:#b94a48}
 *{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#eef2f5;color:#243746}
-header{background:linear-gradient(135deg,var(--blue),#0d5876);color:white;padding:28px 18px;text-align:center} header h1{margin:0 0 8px;font-size:clamp(24px,5vw,40px)} header p{margin:0;font-size:16px}
-main{max-width:900px;margin:auto;padding:20px}.card{background:white;border-radius:16px;padding:22px;margin:16px 0;box-shadow:0 4px 14px rgba(0,0,0,.08)} h2{color:var(--dark)} button{border:0;border-radius:10px;padding:12px 18px;background:var(--orange);color:white;font-weight:bold;cursor:pointer;margin:5px} button:hover{opacity:.9}.answer{display:none;margin-top:12px;padding:12px;border-radius:10px;background:var(--light)} footer{text-align:center;padding:25px;color:#607080;font-size:14px}
+header{background:linear-gradient(135deg,var(--blue),#0d5876);color:white;padding:22px 28px;position:sticky;top:0;z-index:5}
+header h1{margin:0;font-size:28px} header p{margin:6px 0 0}
+.progress{height:7px;background:#dce9ee}.bar{height:100%;width:0;background:var(--orange);transition:.3s}
+main{max-width:980px;margin:25px auto;padding:0 16px}
+.slide{display:none;background:white;border-radius:18px;padding:30px;box-shadow:0 5px 22px #00000018;min-height:520px}
+.slide.active{display:block}.tag{display:inline-block;background:#e7f3f7;color:var(--blue);padding:7px 12px;border-radius:20px;font-weight:bold}
+h2{color:var(--dark);font-size:30px;margin-top:12px} h3{color:var(--blue)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:15px}
+.card{background:var(--light);padding:18px;border-radius:14px;border-left:5px solid var(--blue)}
+.card strong{color:var(--dark)}
+.callout{padding:18px;border-radius:14px;background:#fff3e9;border-left:5px solid var(--orange);margin:18px 0}
+ul{line-height:1.65} .center{text-align:center}.big{font-size:48px}
+button{border:0;border-radius:10px;padding:11px 17px;background:var(--blue);color:white;font-weight:bold;cursor:pointer;margin:5px}
+button:hover{filter:brightness(.92)} button.secondary{background:#6c7a86}
+.nav{display:flex;justify-content:space-between;margin:18px auto;max-width:980px;padding:0 16px}
+.option{display:block;width:100%;text-align:left;background:#f4f7f9;color:#243746;border:2px solid transparent;margin:9px 0;padding:13px;border-radius:10px;cursor:pointer}
+.option:hover{border-color:var(--blue)} .option.correct{border-color:var(--green);background:#e9f7ef}.option.wrong{border-color:var(--red);background:#faecec}
+.feedback{margin-top:10px;font-weight:bold}.hidden{display:none}
+footer{max-width:980px;margin:15px auto 35px;padding:0 16px;color:#667}
+.small{font-size:13px;color:#667}.score{font-size:26px;font-weight:bold;color:var(--blue)}
 </style>
 </head>
 <body>
-<header><h1>OVA: Elementos de la Educación a Distancia</h1><p>Objeto Virtual de Aprendizaje</p></header>
+<header>
+  <h1>📚 Elementos de la Educación a Distancia</h1>
+  <p>Objeto Virtual de Aprendizaje · Módulo 4</p>
+</header>
+<div class="progress"><div class="bar" id="bar"></div></div>
+
 <main>
-<section class="card"><h2>Bienvenida</h2><p>Bienvenido al Objeto Virtual de Aprendizaje sobre los elementos de la educación a distancia. Explora el contenido y realiza las actividades.</p></section>
-<section class="card"><h2>¿Qué es la educación a distancia?</h2><p>Es una modalidad educativa en la que docentes y estudiantes pueden encontrarse separados físicamente y utilizan tecnologías y recursos de comunicación para desarrollar el proceso de enseñanza-aprendizaje.</p></section>
-<section class="card"><h2>Elementos principales</h2><ul><li>Estudiante</li><li>Docente o tutor</li><li>Contenidos y materiales educativos</li><li>Tecnología y medios de comunicación</li><li>Evaluación y retroalimentación</li></ul></section>
-<section class="card"><h2>Actividad interactiva</h2><p><strong>¿Cuál de los siguientes es un elemento fundamental de la educación a distancia?</strong></p><button onclick="show('a1')">Estudiante</button><button onclick="show('a2')">Ninguno</button><div id="a1" class="answer">✅ Correcto. El estudiante es uno de los elementos centrales del proceso educativo.</div><div id="a2" class="answer">❌ Revisa nuevamente los elementos principales.</div></section>
-<section class="card"><h2>Conclusión</h2><p>La educación a distancia integra personas, contenidos, estrategias pedagógicas, tecnología y evaluación para facilitar el aprendizaje sin necesidad de compartir siempre el mismo espacio físico.</p></section>
-</main><footer>OVA - Elementos de la Educación a Distancia</footer>
-<script>function show(id){document.querySelectorAll('.answer').forEach(e=>e.style.display='none');document.getElementById(id).style.display='block'}</script>
-</body></html>
+<section class="slide active">
+  <div class="center">
+    <div class="big">🎓</div>
+    <span class="tag">OVA · Educación a Distancia</span>
+    <h2>Elementos de la Educación a Distancia</h2>
+    <p>Explora los componentes pedagógicos, comunicativos y tecnológicos, participa en actividades y comprueba tus aprendizajes.</p>
+    <div class="callout"><strong>Competencia:</strong> identificar los elementos de la educación a distancia y comprender la necesidad de los diferentes roles para aplicarlos según la función que se desempeñe.</div>
+    <button onclick="next()">Comenzar</button>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="tag">1 · Introducción</span>
+  <h2>¿Quiénes y qué participan en la educación a distancia?</h2>
+  <p>La educación a distancia funciona mediante la participación coordinada de distintos elementos. El módulo organiza estos elementos en tres grandes componentes:</p>
+  <div class="grid">
+    <div class="card"><h3>👩‍🏫 Pedagógicos</h3><p>Personas, contenidos, recursos y estrategias que apoyan el proceso de enseñanza-aprendizaje.</p></div>
+    <div class="card"><h3>💬 Comunicativos</h3><p>Formas y herramientas que permiten la interacción entre docentes y estudiantes.</p></div>
+    <div class="card"><h3>💻 Tecnológicos</h3><p>Plataformas, TIC y herramientas que facilitan la enseñanza y el aprendizaje.</p></div>
+  </div>
+  <div class="callout">💡 <strong>Idea clave:</strong> cada componente cumple una función específica y contribuye al desarrollo de la educación a distancia.</div>
+</section>
+
+<section class="slide">
+  <span class="tag">2 · Componentes pedagógicos</span>
+  <h2>Comunidad educativa</h2>
+  <div class="grid">
+    <div class="card"><strong>Administrador educativo</strong><p>Promueve procesos de cambio e innovación, ayuda a resolver problemas y vela por el cumplimiento de proyectos.</p></div>
+    <div class="card"><strong>Docente</strong><p>Actúa como facilitador: orienta al estudiante, propone actividades, utiliza estrategias y evalúa resultados.</p></div>
+    <div class="card"><strong>Estudiante</strong><p>Es protagonista de su aprendizaje y desarrolla habilidades mediante su participación y autoformación.</p></div>
+    <div class="card"><strong>Padres de familia</strong><p>Su interacción con los demás componentes puede apoyar la educación y favorecer la permanencia y el rendimiento.</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="tag">3 · Contenidos y recursos</span>
+  <h2>¿Con qué se aprende?</h2>
+  <div class="grid">
+    <div class="card"><h3>📖 Contenidos</h3><p>Se organizan en unidades didácticas y deben seguir estrategias que ayuden a alcanzar los objetivos de aprendizaje.</p></div>
+    <div class="card"><h3>📚 Libros</h3><p>Incluyen textos impresos y recursos digitales como libros en línea, PDF y revistas virtuales.</p></div>
+    <div class="card"><h3>📻 Radio</h3><p>Puede utilizarse con una planificación educativa previamente determinada.</p></div>
+    <div class="card"><h3>🎬 Cine y video</h3><p>Pueden motivar, ejemplificar, desarrollar o complementar otros elementos de enseñanza.</p></div>
+    <div class="card"><h3>📺 Televisión</h3><p>Es un medio audiovisual que ha tenido presencia en contextos educativos.</p></div>
+    <div class="card"><h3>📹 Videoconferencia</h3><p>Permite conectar simultáneamente a personas ubicadas en lugares diferentes.</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="tag">4 · Evaluación</span>
+  <h2>Evaluar también es aprender</h2>
+  <div class="grid">
+    <div class="card"><strong>Diagnóstica</strong><p>Se realiza antes de iniciar el contenido para conocer aprendizajes previos.</p></div>
+    <div class="card"><strong>Formativa</strong><p>Se desarrolla durante las actividades para observar avances, procesos y necesidades de apoyo.</p></div>
+    <div class="card"><strong>Sumativa</strong><p>Integra los resultados para verificar el cumplimiento de las competencias propuestas.</p></div>
+  </div>
+  <h3>Formas de evaluación</h3>
+  <p><strong>Autoevaluación:</strong> el estudiante se evalúa a sí mismo. &nbsp; <strong>Heteroevaluación:</strong> el docente evalúa al estudiante. &nbsp; <strong>Coevaluación:</strong> los estudiantes evalúan a otros estudiantes.</p>
+</section>
+
+<section class="slide">
+  <span class="tag">5 · Componentes comunicativos</span>
+  <h2>Síncrono y asíncrono</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>🟢 Síncrono</h3>
+      <p>Docente y estudiantes interactúan compartiendo el mismo tiempo.</p>
+      <ul><li>Chat</li><li>Audioconferencia</li><li>Videoconferencia</li></ul>
+    </div>
+    <div class="card">
+      <h3>🔵 Asíncrono</h3>
+      <p>La interacción no requiere que docente y estudiante coincidan en el mismo momento.</p>
+      <ul><li>Correo electrónico</li><li>Foros de discusión</li></ul>
+    </div>
+  </div>
+  <div class="callout">Las actividades de enseñanza y aprendizaje en educación a distancia deben aprovechar las posibilidades de interacción ofrecidas por las TIC.</div>
+</section>
+
+<section class="slide">
+  <span class="tag">6 · Plataformas educativas</span>
+  <h2>El espacio virtual de aprendizaje</h2>
+  <p>Las plataformas educativas son herramientas integradas para crear, gestionar y distribuir formación mediante internet. Pueden reunir materiales didácticos y herramientas de comunicación, colaboración y gestión.</p>
+  <div class="grid">
+    <div class="card">📄 Herramientas de contenidos</div>
+    <div class="card">💬 Herramientas de comunicación</div>
+    <div class="card">📝 Herramientas de evaluación</div>
+    <div class="card">📈 Herramientas de seguimiento</div>
+    <div class="card">👤 Herramientas de gestión del personal del alumno</div>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="tag">7 · TIC y Web 2.0</span>
+  <h2>Tecnología al servicio del aprendizaje</h2>
+  <p>El módulo señala que las TIC han ampliado las posibilidades para la enseñanza y el aprendizaje, favoreciendo la interacción, la comunicación y el acceso a la información.</p>
+  <div class="grid">
+    <div class="card"><strong>Informática educativa</strong><p>Ha evolucionado de un recurso para transmitir información hacia un medio de comunicación dentro del ámbito educativo.</p></div>
+    <div class="card"><strong>Comunidades virtuales de aprendizaje</strong><p>Agrupan personas que se organizan para participar en proyectos educativos de manera abierta, participativa y flexible.</p></div>
+    <div class="card"><strong>Web 2.0</strong><p>Favorece la participación social y permite que el alumno tenga un papel activo en la construcción de su conocimiento.</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <span class="tag">8 · Actividad interactiva</span>
+  <h2>Relaciona el concepto</h2>
+  <p><strong>Pregunta:</strong> ¿Cuál herramienta corresponde a una comunicación asíncrona?</p>
+  <button class="option" onclick="answer(this,false)">Videoconferencia</button>
+  <button class="option" onclick="answer(this,true)">Correo electrónico</button>
+  <button class="option" onclick="answer(this,false)">Chat</button>
+  <button class="option" onclick="answer(this,false)">Audioconferencia</button>
+  <div id="fb1" class="feedback"></div>
+</section>
+
+<section class="slide">
+  <span class="tag">9 · Actividad interactiva</span>
+  <h2>Verdadero o falso</h2>
+  <p><strong>El estudiante es protagonista de su proceso de aprendizaje.</strong></p>
+  <button class="option" onclick="answer(this,true)">Verdadero</button>
+  <button class="option" onclick="answer(this,false)">Falso</button>
+  <div id="fb2" class="feedback"></div>
+</section>
+
+<section class="slide">
+  <span class="tag">10 · Evaluación final</span>
+  <h2>Comprueba tus aprendizajes</h2>
+  <p>Responde las siguientes preguntas. El resultado se mostrará al finalizar.</p>
+  <div id="quiz"></div>
+  <button onclick="finishQuiz()">Ver resultado</button>
+  <div id="result" class="score"></div>
+</section>
+
+<section class="slide">
+  <span class="tag">11 · Reflexión</span>
+  <h2>¿Qué aprendiste?</h2>
+  <div class="callout">
+    Los componentes pedagógicos, comunicativos y tecnológicos se complementan dentro de la educación a distancia. El papel del docente y la participación responsable del estudiante son elementos relevantes para el proceso formativo.
+  </div>
+  <p><strong>Reflexiona:</strong> ¿Qué elemento de la educación a distancia consideras que necesitas fortalecer para mejorar tu aprendizaje?</p>
+  <textarea id="reflection" style="width:100%;min-height:120px;padding:12px;border:1px solid #ccd6dc;border-radius:10px" placeholder="Escribe aquí tu reflexión..."></textarea>
+  <p class="small">Esta reflexión es personal y no se envía al docente automáticamente.</p>
+</section>
+
+<section class="slide">
+  <span class="tag">12 · Referencias</span>
+  <h2>Bibliografía del módulo</h2>
+  <ul>
+    <li>Aretio, L. G. (s.f.). <em>Educación a distancia ayer y hoy</em>.</li>
+    <li>Arteaga, C. (2003). Radio educativa. <em>Razón y Palabra</em>.</li>
+    <li>Fernández, N. R. (2014). <em>Fundamentos del proceso educativo a distancia, enseñanza, aprendizaje y evaluación</em>.</li>
+    <li>García, D. R. (2007). El cine como recurso didáctico. <em>Eikasia, revista educativa</em>, 123–127.</li>
+    <li>Maldonado, H. T., & Girón, D. A. (2009). <em>Didáctica General</em>. Editorama.</li>
+    <li>Rivera, K. A. (2004). <em>Un modelo de enseñanza-aprendizaje virtual</em>.</li>
+    <li>Sallan, J. G. (2006). Las comunidades virtuales de aprendizaje.</li>
+    <li>Universidad La Salle. (2013). <em>Catálogo de estrategias de aprendizaje y enseñanza para la educación a distancia</em>.</li>
+    <li>Soto, C. F., Martínez, A. I., & Otero, C. (2009). Ventajas del uso de las TIC en el proceso enseñanza-aprendizaje.</li>
+    <li>Peña, F. B. (2012). <em>Educación a Distancia en el Nivel Superior</em>. Trillas.</li>
+    <li>Requena, S. H. (2008). El modelo constructivista con las nuevas tecnologías aplicado al proceso de aprendizaje.</li>
+  </ul>
+  <div class="callout"><strong>Fuente base:</strong> Módulo 4, “Elementos de la Educación a Distancia”, Universidad de San Carlos de Guatemala, Facultad de Humanidades, Departamento de Educación Virtual.</div>
+</section>
+
+<section class="slide center">
+  <div class="big">🏁</div>
+  <h2>¡Has completado el OVA!</h2>
+  <p>Revisa tus respuestas y conserva la reflexión como evidencia de aprendizaje.</p>
+  <button onclick="goTo(0)">Volver al inicio</button>
+</section>
+</main>
+
+<div class="nav">
+  <button class="secondary" onclick="prev()">← Anterior</button>
+  <span id="counter"></span>
+  <button onclick="next()">Siguiente →</button>
+</div>
+<footer>
+  <p><strong>OVA académico basado en el Módulo 4: Elementos de la Educación a Distancia.</strong></p>
+  <p class="small">Material preparado para uso académico. La obra fuente del módulo indica licencia CC BY-NC-ND 4.0; se conserva la atribución y se recomienda revisar las condiciones de uso antes de publicar o redistribuir.</p>
+</footer>
+
+<script>
+let current=0, slides=document.querySelectorAll('.slide');
+const qs=[
+ {q:"¿Cuál pertenece a los componentes comunicativos síncronos?",o:["Correo electrónico","Foro de discusión","Chat","Libro digital"],a:2},
+ {q:"¿Qué evaluación se realiza antes de iniciar el contenido?",o:["Sumativa","Diagnóstica","Coevaluación","Formativa"],a:1},
+ {q:"¿Cuál es una herramienta de comunicación asíncrona?",o:["Videoconferencia","Audioconferencia","Chat","Correo electrónico"],a:3},
+ {q:"¿Cuál es una función asociada a las plataformas educativas?",o:["Solo almacenar videos","Evaluación y seguimiento","Eliminar la comunicación","Sustituir al estudiante"],a:1},
+ {q:"Según el módulo, ¿quién es protagonista de su proceso de aprendizaje?",o:["El estudiante","El administrador únicamente","La plataforma","El libro"],a:0}
+];
+let quizAnswers=Array(qs.length).fill(null);
+function render(){
+ slides.forEach((s,i)=>s.classList.toggle('active',i===current));
+ document.getElementById('counter').textContent=`${current+1} / ${slides.length}`;
+ document.getElementById('bar').style.width=((current)/(slides.length-1)*100)+'%';
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+function next(){if(current<slides.length-1){current++;render();}}
+function prev(){if(current>0){current--;render();}}
+function goTo(i){current=i;render();}
+function answer(btn,correct){
+ const slide=btn.closest('.slide'); slide.querySelectorAll('.option').forEach(x=>x.disabled=true);
+ btn.classList.add(correct?'correct':'wrong');
+ const fb=slide.querySelector('.feedback');
+ fb.textContent=correct?'✅ Correcto.':'❌ Incorrecto. Revisa el contenido del módulo.';
+ fb.style.color=correct?'#2e8b57':'#b94a48';
+}
+function buildQuiz(){
+ const box=document.getElementById('quiz');
+ box.innerHTML=qs.map((x,i)=>`<div class="card" style="margin-bottom:15px"><strong>${i+1}. ${x.q}</strong>${
+ x.o.map((op,j)=>`<button class="option" onclick="selectQuiz(${i},${j},this)">${op}</button>`).join('')
+ }</div>`).join('');
+}
+function selectQuiz(i,j,btn){
+ quizAnswers[i]=j;
+ btn.parentElement.querySelectorAll('.option').forEach(x=>x.style.borderColor='transparent');
+ btn.style.borderColor='var(--blue)';
+}
+function finishQuiz(){
+ let score=0; qs.forEach((x,i)=>{if(quizAnswers[i]===x.a)score++;});
+ const pct=Math.round(score/qs.length*100);
+ document.getElementById('result').textContent=`Resultado: ${score}/${qs.length} (${pct}%)`;
+}
+buildQuiz(); render();
+</script>
+</body>
+</html>
