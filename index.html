@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>OVA - Elementos de la Educación a Distancia</title>
+<style>
+:root{--blue:#117fa3;--dark:#17324d;--orange:#ed7623;--light:#eef7fa;--white:#fff;--green:#2e8b57;--red:#b94a48}
+*{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#eef2f5;color:#243746}
+header{background:linear-gradient(135deg,var(--blue),#0d5876);color:white;padding:28px 18px;text-align:center} header h1{margin:0 0 8px;font-size:clamp(24px,5vw,40px)} header p{margin:0;font-size:16px}
+main{max-width:900px;margin:auto;padding:20px}.card{background:white;border-radius:16px;padding:22px;margin:16px 0;box-shadow:0 4px 14px rgba(0,0,0,.08)} h2{color:var(--dark)} button{border:0;border-radius:10px;padding:12px 18px;background:var(--orange);color:white;font-weight:bold;cursor:pointer;margin:5px} button:hover{opacity:.9}.answer{display:none;margin-top:12px;padding:12px;border-radius:10px;background:var(--light)} footer{text-align:center;padding:25px;color:#607080;font-size:14px}
+</style>
+</head>
+<body>
+<header><h1>OVA: Elementos de la Educación a Distancia</h1><p>Objeto Virtual de Aprendizaje</p></header>
+<main>
+<section class="card"><h2>Bienvenida</h2><p>Bienvenido al Objeto Virtual de Aprendizaje sobre los elementos de la educación a distancia. Explora el contenido y realiza las actividades.</p></section>
+<section class="card"><h2>¿Qué es la educación a distancia?</h2><p>Es una modalidad educativa en la que docentes y estudiantes pueden encontrarse separados físicamente y utilizan tecnologías y recursos de comunicación para desarrollar el proceso de enseñanza-aprendizaje.</p></section>
+<section class="card"><h2>Elementos principales</h2><ul><li>Estudiante</li><li>Docente o tutor</li><li>Contenidos y materiales educativos</li><li>Tecnología y medios de comunicación</li><li>Evaluación y retroalimentación</li></ul></section>
+<section class="card"><h2>Actividad interactiva</h2><p><strong>¿Cuál de los siguientes es un elemento fundamental de la educación a distancia?</strong></p><button onclick="show('a1')">Estudiante</button><button onclick="show('a2')">Ninguno</button><div id="a1" class="answer">✅ Correcto. El estudiante es uno de los elementos centrales del proceso educativo.</div><div id="a2" class="answer">❌ Revisa nuevamente los elementos principales.</div></section>
+<section class="card"><h2>Conclusión</h2><p>La educación a distancia integra personas, contenidos, estrategias pedagógicas, tecnología y evaluación para facilitar el aprendizaje sin necesidad de compartir siempre el mismo espacio físico.</p></section>
+</main><footer>OVA - Elementos de la Educación a Distancia</footer>
+<script>function show(id){document.querySelectorAll('.answer').forEach(e=>e.style.display='none');document.getElementById(id).style.display='block'}</script>
+</body></html>
